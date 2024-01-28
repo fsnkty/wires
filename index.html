@@ -58,26 +58,23 @@
     <span id="three">&gt;wires</span>
   </div>
 
-  <audio id="audio">
-    <source src="./dubidubidu.mp3" type="audio/mpeg">
-  </audio>
 
 
 </body>
   <script>
     let elem = document.getElementById("two")
-    let audio = document.getElementById("audio")
-    document.AAAready = false;
+    let audio = new Audio("dubidubidu.mp3");
+    ready = false;
 
     document.onclick = (evt) => {
       // we can deadlock :3
-      if (evt.target != document.documentElement || !document.AAAready) return;
+      if (evt.target != document.documentElement || !ready) return;
       audio.paused ? audio.play() : audio.pause()
     }
 
     elem.addEventListener("click", function myfunc() {
       audio.play();
-      document.AAAready = true;
+      ready = true;
       elem.parentElement.remove();
       document.body.id = "thebackground";
       
