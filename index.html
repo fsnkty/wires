@@ -7,7 +7,7 @@
     5% {  background-size: 40px; }
     15% {  background-size: 30px; }
     25% {  background-size: 40px; }
-    35% {  background-size: 60px; }
+    35% {  background-size: 50px; }
     45% {  background-size: 40px; }
     55% {  background-size: 80px; }
     100% {  background-size: unset; }
@@ -26,9 +26,16 @@
 </style>
 </head>
 <body>
-  <audio controls loop autoplay id="audio">
+  <audio hidden loop autoplay id="audio">
     <source src="dubidubidu.mp3" type="audio/mpeg">
   </audio>
+
+  <script>
+    document.addEventListener('click', () => {
+      song = document.getElementById("audio");
+      song.paused ? song.play() : song.pause();
+    })
+  </script>
 
 </body>
 </html>
