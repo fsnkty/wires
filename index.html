@@ -2,45 +2,89 @@
 <html>
 <head>
   <title>&gt;wires</title>
-<style>
-  @keyframes wirin {
-    25% {  background-size: 40px; }
-    30% {  background-size: 90px; }
-    35% {  background-size: 50px; }
-    40% {  background-size: 30px; }
-    45% {  background-size: 43px; }
-    50% {  background-size: 50px; }
-    55% {  background-size: 80px; }
-    100% { background-size: unset; }
-  }
-
-  html { 
-    cursor: url("wire.png"), auto;
-    height: 100%;
-  }
-
-  body {
-    background-image: url("wires.png");
-    background-repeat: repeat;
-    background-size: 60px;
-    animation-name: wirin;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-  }
-
-</style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <audio hidden loop autoplay id="audio">
-    <source src="dubidubidu.mp3" type="audio/mpeg">
+  
+  <style>
+
+
+    @keyframes wirin {
+      25% {  background-size: 40px; }
+      30% {  background-size: 90px; }
+      35% {  background-size: 50px; }
+      40% {  background-size: 30px; }
+      45% {  background-size: 43px; }
+      50% {  background-size: 50px; }
+      55% {  background-size: 80px; }
+      100% { background-size: unset; }
+    }
+
+    body {
+      background: black;
+      text-align: center;
+      font-family: monospace;
+      font-size: 50pt;
+    }
+    #meme-format { color: rgb(48, 184, 109); }
+
+    #two   {
+      color: red;
+      background: none;
+      outline: none;
+      font: inherit;
+      padding: 2px;
+      border: none;
+    }
+    #thebackground {
+      background-image: url("wires.png");
+      background-repeat: repeat;
+      background-size: 60px;
+      display: inline-block;
+      animation: wirin 6s infinite;
+    }
+    html { 
+      cursor: url("wire.png") 16 16, auto;
+      height: 100%;
+    }
+
+  </style>
+
+  <div id="meme-format">
+    <span id="one">&gt;buy wireless device</span>
+    <br>
+    <span id="two">&gt;look inside</span>
+    <br>
+    <span id="three">&gt;wires</span>
+  </div>
+
+  <audio id="audio">
+    <source src="./dubidubidu.mp3" type="audio/mpeg">
   </audio>
 
-  <script>
-    document.addEventListener('click', () => {
-      song = document.getElementById("audio");
-      song.paused ? song.play() : song.pause();
-    })
-  </script>
 
 </body>
+  <script>
+    let elem = document.getElementById("two")
+    let audio = document.getElementById("audio")
+    document.AAAready = false;
+
+    document.onclick = (evt) => {
+      // we can deadlock :3
+      if (evt.target != document.documentElement || !document.AAAready) return;
+      audio.paused ? audio.play() : audio.pause()
+    }
+
+    elem.addEventListener("click", function myfunc() {
+      audio.play();
+      document.AAAready = true;
+      elem.parentElement.remove();
+      document.body.id = "thebackground";
+      
+    })
+
+
+
+
+  </script>
 </html>
