@@ -5,10 +5,13 @@
 <style>
   @keyframes wirin {
     25% {  background-size: 40px; }
+    30% {  background-size: 90px; }
     35% {  background-size: 50px; }
-    45% {  background-size: 40px; }
+    40% {  background-size: 30px; }
+    45% {  background-size: 43px; }
+    50% {  background-size: 50px; }
     55% {  background-size: 80px; }
-    100% {  transform: rotate(90deg); }
+    100% { background-size: unset; }
   }
 
   html { 
@@ -21,7 +24,7 @@
     background-repeat: repeat;
     background-size: 60px;
     animation-name: wirin;
-    animation-duration: 30s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
   }
 
