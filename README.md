@@ -1,1 +1,1 @@
-![wires](https://wires.nuko.city/wires.png)
+![wires](https://wires.shimeji.cafe/wires.png)
